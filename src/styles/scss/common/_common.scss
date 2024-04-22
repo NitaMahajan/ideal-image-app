@@ -1,0 +1,11 @@
+.hide-mobile-view{
+    @media only screen and (max-width: ($break-sm-width - 1)) {
+        display: none !important;
+    }
+}
+
+.show-mobile-view{
+    @media only screen and (min-width: $break-sm-width){
+        display: none !important;
+    }   
+}

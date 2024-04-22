@@ -1,0 +1,117 @@
+// CSS for main category labels on Customize Treatment page
+.below-box {
+    flex: 1;
+    overflow-y: auto;
+    border-top: 1px solid #ccc;
+    background-color: #efefef;
+    .container-list {
+      display: flex;
+      flex-direction: row;
+      overflow-x: auto;
+      width: fit-content; 
+      padding: 1em;
+      border-bottom: 1px solid #ccc; 
+    }
+
+    .sub-box {
+      width: 100px; 
+      height: 50px;
+      margin-right: 1em; 
+      background: radial-gradient($white, #d1d1d1);
+      border: 2px solid white; 
+      color: #4E5C7D; 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0.5em;
+    }
+    .selected {
+      background: $blue-grey; 
+      color: $white;
+     
+    } 
+}
+// CSS for checkbox list showing the options within category on Customize Treatment page
+.top-box {
+    flex: 7;
+    .category-title{
+        padding: 2em;
+        text-align: center;
+      }
+      .checkbox-group {
+        display: flex;
+        flex-direction: column;
+        row-gap: 0.5em;
+        padding: 0 2em;
+      }
+      
+      .checkbox-row {
+        display: flex;
+        align-items: center;
+      }
+      
+      .checkbox-row input[type="checkbox"] {
+        margin-right: 8px;     
+      }
+      input[type="checkbox"] {
+        appearance: none;
+        -webkit-appearance: none;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        font-size: 2rem;
+        padding: 0.1rem;
+        border: 0.1rem solid $blue-grey;
+        border-radius: 0.25rem;
+      }
+      
+      input[type="checkbox"]::before {
+        content: "";
+        width: 1rem;
+        height: 1rem;
+        clip-path: polygon(28% 38%, 41% 53%, 75% 24%, 86% 38%, 40% 78%, 15% 50%);
+        transform: scale(0);
+        background-color: $blue-grey;
+      }
+      input[type="checkbox"]:checked::before {
+        transform: scale(1);
+      }
+      input[type="checkbox"]:hover {
+        color: black;
+      }
+  }
+  // CSS for proceed to cart button
+  .cart-btn {
+    flex: 0;
+  }
+  // CSS for mobile view on Customize Treatment page
+.scrollable-box {
+    @include flex-column;
+    height: 100%; 
+    border: 1px solid #ccc; 
+  }
+  // CSS for desktop view on Customize Treatment page
+  .desktop-box {
+    height: 100%;
+    @include flex-row;
+    border: 1px solid $grey;
+    border-radius: 1em; 
+    .left-portion {
+        @include flex-column;
+        flex: 2;
+        .empty-portion {
+            flex: 8
+        }
+        .below-box{
+            @include flex-row;
+            justify-content: center;
+            background-color: $white !important;
+        }
+        
+    }
+    .right-portion {
+        @include flex-column;
+        flex: 1;
+        background-color: #efefef;
+    }
+  }

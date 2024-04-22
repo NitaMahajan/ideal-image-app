@@ -1,0 +1,64 @@
+// CSS For Main Header on All Pages
+.header {
+    @include flex-row;
+    min-height: 3em;
+    width: 100%;
+    // Mobile Header
+    &.compact-header {
+        padding: 1em;
+        color: $white;
+        background-color: $blue-grey;
+        .header-message {
+            flex: 2;
+        }
+        div:not(:last-child) { 
+            margin-right: 0.5em;
+        }
+        // New header code
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+    // Desktop Header
+    &.expanded-header {
+        .company-logo {
+            flex: 1; 
+        }
+        nav {
+            display: flex;
+            flex: 3; 
+            ul {
+                @include flex-row;
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+                justify-content: flex-end;
+                li {
+                    margin-right: 1em; 
+                    display: flex;
+                    align-items: center;
+                    position: relative;
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        top: 50%; 
+                        transform: translateY(-50%); 
+                        right: -0.5em; 
+                        width: 1px;
+                        height: calc(100% - 2em);
+                        background-color: $grey;
+                    }
+                    &:last-child::after {
+                        display: none;
+                    }
+                }
+
+                li:last-child {
+                    margin-right: 0; 
+                }
+            }
+        }
+    }
+}
